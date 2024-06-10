@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+{% endblock %}
+<style>
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.btn-close {
+    float: right;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+</style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="header-main">
+         <div class="logo">
+           <h1><a href="{% url "main:index" %}">Онлайн<span class="logo-clr">Школа</span></a></h1>
+         </div>
+         <div class="head-right">
+           <div class="top-nav">
+               <span class="menu"> <img src="{% static "img/icon.png" %}" alt=""/></span>
+            <ul class="res">
+              <li><a class="active" href="{% url "main:index" %}"> Домашняя</a></li>
+              <li><a href="{% url "main:about" %}"><span data-hover="О нас">О нас⠀</span></a></li>
+              <li><a href="{% url "yslugi:index" %}"><span data-hover="Курсы">Курсы</span></a></li>
+              <li><a href="{% url "main:contacts" %}"><span data-hover="Контакты">Контакты</span></a></li>
+              {% if not user.is_authenticated %}
+              <li><a href="{% url "user:login" %}"><span data-hover="Войти в личный кибинет">Войти в личный кибинет⠀</span></a></li>
+              {% else %}
+              <li><a href="{% url "user:profile" %}"><span data-hover="Личный кабинет">Личный кабинет⠀</span></a></li>
+              {% endif %}
+              {% if user.id_admin or user.is_staff %}
+              <li><a href="{% url "admin:index" %}"><span data-hover="Админ панель">Админ панель⠀</span></a></li>
+              {% endif %}
+            <div class="clearfix"> </div>
+            </ul>
+
+          <!-- script-for-menu -->
+                 <script>
+                   $( "span.menu" ).click(function() {
+                   $( "ul.res" ).slideToggle( 300, function() {
+                   // Animation complete.
+                    });
+                   });
+                </script>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+    {% include "includes/notifications.html" %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
