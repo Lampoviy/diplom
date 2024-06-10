@@ -1,0 +1,47 @@
+{% extends "shablon.html" %}
+{% load static %}
+
+{% block head %}
+<title>Онлайн Школа | Features</title>
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static "js/jquery-1.11.0.min.js" %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<link href="{% static "css/1.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/move-top.js" %}"></script>
+<script type="text/javascript" src="{% static "js/easing.js" %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+{% endblock head %}
+{% block content %}
+
+<div class="container">
+{% for ysluga in yslugi %}
+  <div class="card">
+      <div class="box">
+        <div class="content">
+          <h3>{{ ysluga.name }}</h3>
+          <p>{{ ysluga.description }}</p>
+          <a href="{% url 'cart:yslugi_add' ysluga.slug %}"> {{ ysluga.price }} ₽ Купить</a>
+        </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
