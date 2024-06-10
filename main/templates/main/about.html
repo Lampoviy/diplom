@@ -1,0 +1,82 @@
+{% extends "shablon.html" %}
+{% load static %}
+
+{% block head %}
+<title>Онлайн школа</title>
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static "js/jquery-1.11.0.min.js" %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/move-top.js" %}"></script>
+<script type="text/javascript" src="{% static "js/easing.js" %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+{% endblock head %}
+{% block content %}
+<div class="about">
+	<div class="container">
+		<div class="about-main">
+				<div class="about-top">
+					<h3>О нас</h3>
+					<p></p>
+				</div>
+				<div class="about-wedo">
+					<div class="col-md-4 about-top-img">
+						<a><img src="{% static "img/book.jpg" %}" alt="" class="img-responsive"></a>
+					</div>
+					<div class="col-md-8 about-wedo-right">
+						<h4><a>Мы новая онлайн школа английского языка</a></h4>
+						<p>Добро пожаловать в нашу онлайн школу английского языка! Мы предлагаем удобные онлайн занятия с опытными преподавателями, индивидуальный подход к каждому студенту и разнообразные учебные материалы. У нас вы сможете значительно улучшить свои навыки английского языка, независимо от вашего уровня владения им. Присоединяйтесь к нам и начните свой путь к владению английским языком!</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+	 </div>
+</div>
+	<div class="team-mem">
+		<div class="container">
+			   <div class="team-main">
+					<h3>Наша команда</h3>
+					<div class="team-top">
+						<div class="col-md-4 team-top-left">
+							<img src="{% static "img/t1.jpg" %}">
+							<div class="team-details">
+								<h4>Mark Johnson</h4>
+								<P>Владеет английским в совершенстве.</P>
+							</div>
+						</div>
+						<div class="col-md-4 team-top-left">
+							<img src="{% static "img/t2.jpg" %}">
+							<div class="team-details">
+								<h4>Bradley Grosh</h4>
+								<P>Живёт и работает из США.</P>
+							</div>	
+						</div>
+						<div class="col-md-4 team-top-left">
+							<img src="{% static "img/t3.jpg" %}">
+							<div class="team-details">
+								<h4>Helen tompson</h4>
+								<P>Преподователь с несколькими высшими образованиями.</P>							
+							</div>	
+						</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+	  </div>
+</div>
+{% endblock %}

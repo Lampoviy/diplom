@@ -1,0 +1,56 @@
+{% extends "shablon.html" %}
+{% load static %}
+{% block head %}
+<title>Онлайн школа</title>
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static "js/jquery-1.11.0.min.js" %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/move-top.js" %}"></script>
+<script type="text/javascript" src="{% static "js/easing.js" %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+{% endblock head %}
+
+
+
+{% block content %}
+<div class="contact">
+	<div class="container">
+		<div class="contact-main">
+			<div class="contact-top">
+				<h3>Контакт</h3>
+				<p>Заполните форму, чтобы отправить нам сообщение.</p>
+			</div>
+			<div class="contact-bottom">
+				<div class="col-md-4 con-name">
+					<input type="text" value="Имя" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
+				</div>
+				<div class="col-md-4 con-name">
+				    <input type="text" value="E-mail" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='E-mail';}">
+				</div>
+				<div class="col-md-4 con-name">
+				    <input type="text" value="Тема" class="no-mar" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
+				</div>
+				<textarea onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">Сообщение</textarea>
+				<input type="submit" value="Отправить">
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

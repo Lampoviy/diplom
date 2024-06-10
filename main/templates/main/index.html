@@ -1,0 +1,103 @@
+{% extends "shablon.html" %}
+{% load static %}
+{% block head %}
+<title>Онлайн школа</title>
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static "js/jquery-1.11.0.min.js" %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/move-top.js" %}"></script>
+<script type="text/javascript" src="{% static "js/easing.js" %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+<style>
+.banner {
+  background: url('{% static 'img/3.jpg' %}')no-repeat;
+  min-height: 700px;
+  background-size: cover;
+}
+</style>
+{% endblock head %}
+
+
+
+{% block content %}
+<!--header end here-->
+<!--banner start here-->
+<div class="banner">
+	<div class="container">
+		<div class="banner-main">
+			<h2>Мы открылись!<br>Новая онлайн школа</h2>
+			<h3>Благодаря нашим уникальным видео-курсам вы быстро обучитесь ангийскому языку.</h3>
+			<div class="bann-btn">
+				<a href="{% url "yslugi:index" %}">Подробнее</a> 			<!-- /ссылка на страницу с видео-курсами -->
+			</div>
+		</div>
+	</div>
+</div>
+<!--banner end here-->
+  <div class="grid-main">
+	<div class="container">
+			<div class="process">
+				<h2>В чем заключается процесс обучения?</h2>
+				<p></p>
+			    <div class="process-bottom">
+			    	<div class="col-md-4 process-grid">
+			    		<span class="glyphicon glyphicon-education" aria-hidden="true"> </span>
+			    		<h3>Сбор идей</h3>
+			    		<h4>Мы учитываем идеи наших учеников для улучшения процесса обучения.</h4>
+			    	</div>
+			    	<div class="col-md-4 process-grid">
+			    		<span class="glyphicon glyphicon-lamp" aria-hidden="true"> </span>
+			    		<h3>Подготовка</h3>
+			    		<h4>К каждому видео-уроку мы тщательно подготавливаемся, чтобы доступно объяснить материал каждому ученику.</h4>
+			    	</div>
+			    	<div class="col-md-4 process-grid">
+			    		<span class="glyphicon glyphicon-hourglass" aria-hidden="true"> </span>
+			    		<h3>Завершение</h3>
+			    		<h4>В конце обучения ученики пройдут тестирование, чтобы подтвердить полученное образование.</h4>
+			    	</div>
+			      <div class="clearfix"> </div>
+			   </div>
+	     </div>	
+      </div>
+   </div>
+	<div class="recent-posts">
+		<div class="container">
+				<div class="recent-bottom">
+					<div class="col-md-6 recent-left">
+						<h3> Что мы делаем?</h3>
+						<h4>Каждый наш преподователь владеет английским языком на профессиональном уровне. Команда из преподователей составляет общий курс, который обладает необходимой информацией для определённого уровня владения языком. Уровень зависит от выбранного вами курса.</h4>
+					    <h4>Цены на видео-курсы варьируются от степени сложности..</h4>
+					</div>
+					<div class="col-md-6 recent-right">
+							<img src="{% static "img/post.jpg" %}" alt="" class="img-responsive">
+					</div>
+				   <div class="clearfix"> </div>
+				</div>
+			</div>
+	      <div class="clearfix"> </div>
+	 </div>
+<link rel="stylesheet" href="{% static "css/swipebox.css" %}">
+	<script src="{% static "js/jquery.swipebox.min.js" %}"></script> 
+	    <script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+</script>
+{% endblock %}

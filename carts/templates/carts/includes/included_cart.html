@@ -1,0 +1,28 @@
+{% load static %}
+{% load carts_tags %}
+
+{% user_carts request as carts %}
+
+<div class="courses-container">
+    <h3>Мои курсы:</h3>
+    {% for cart in carts %}
+        <div class="course-item">
+            {% if cart.ysluga.slug %}
+                <a href="{% url "yslugi:kurs" cart.ysluga.slug %}">
+                    <h5>{{ cart.ysluga.name }}</h5>
+                </a>
+            {% else %}
+                <h5>{{ cart.ysluga.name }}</h5>
+            {% endif %}
+            <div class="course-details">
+                <strong>{{ cart.ysluga.price }} ₽</strong>
+                <div class="course-actions">
+                    <a href="{% url "cart:yslugi_remove" cart.id %}" data-cart-id="{{ cart.id }}">
+                        {% csrf_token %}
+                        Отказаться
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
